@@ -19,13 +19,14 @@ from email_preprocess import preprocess
 ### labels_train and labels_test are the corresponding item labels
 features_train, features_test, labels_train, labels_test = preprocess()
 
-features_train = features_train[:len(features_train)/100]  
-labels_train = labels_train[:len(labels_train)/100]
+# features_train = features_train[:len(features_train)/100]  
+# labels_train = labels_train[:len(labels_train)/100]
 
 #########################################################
 
 
-cValues = [10.0,100.0,1000.0,10000.0]
+# cValues = [10.0,100.0,1000.0,10000.0]
+cValues = [10000.0]
 
 for c in cValues:
     from sklearn import svm
@@ -40,6 +41,13 @@ for c in cValues:
     from sklearn.metrics import accuracy_score
 
     print str(c) + " : " + str(accuracy_score(labels_test, pred))
+    
+
+print pred[10]
+print pred[26]
+print pred[50]
+
+print "Total mails to be predicted to be in Chris (1) class are" + str(sum(pred))
     
 
 
