@@ -28,7 +28,7 @@ labels_train = labels_train[:len(labels_train)/100]
 #########################################################
 ### your code goes here ###
 from sklearn import svm
-svmclassifier = svm.SVC(kernel='linear')
+svmclassifier = svm.SVC(kernel='rbf')
 t0 = time()
 svmclassifier = svmclassifier.fit(features_train,labels_train)
 print "Training Time : ", round(time()-t0,3),"s"
