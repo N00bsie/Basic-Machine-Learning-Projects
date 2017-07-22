@@ -27,19 +27,19 @@ labels_train = labels_train[:len(labels_train)/100]
 
 cValues = [10.0,100.0,1000.0,10000.0]
 
-for c in cvalues:
+for c in cValues:
     from sklearn import svm
-svmclassifier = svm.SVC(c, kernel='rbf')
-t0 = time()
-svmclassifier = svmclassifier.fit(features_train,labels_train)
-print "Training Time : ", round(time()-t0,3),"s"
+    svmclassifier = svm.SVC(c, kernel='rbf')
+    t0 = time()
+    svmclassifier = svmclassifier.fit(features_train,labels_train)
+    print "Training Time : ", round(time()-t0,3),"s"
 
-t1 = time()
-pred = svmclassifier.predict(features_test)
-print "Predicting Time : ",round(time()-t1,3),"s"
-from sklearn.metrics import accuracy_score
+    t1 = time()
+    pred = svmclassifier.predict(features_test)
+    print "Predicting Time : ",round(time()-t1,3),"s"
+    from sklearn.metrics import accuracy_score
 
-print c + " : " + accuracy_score(labels_test, pred)
+    print str(c) + " : " + str(accuracy_score(labels_test, pred))
     
 
 
